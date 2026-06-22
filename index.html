@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Condugas Digital · La obra en la palma de la mano</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAFA; --bg-end: #F0F0F5;
+  --surface: #FFFFFF; --text: #1D1D1F;
+  --text-secondary: #86868B; --text-tertiary: #AEAEB2;
+  --blue: #0071E3; --green: #34C759; --red: #FF3B30; --orange: #FF9500;
+  --violet: #8B5CF6; --lime: #C6F432; --amber: #FFB800;
+  --border-subtle: rgba(0,0,0,0.06);
+  --shadow: 0 2px 12px rgba(0,0,0,0.04);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.08);
+  --radius: 20px;
+  --font: 'Inter', -apple-system, system-ui, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { overflow-x: hidden; width: 100%; }
+body {
+  font-family: var(--font);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-end) 100%);
+  color: var(--text); line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1080px; padding: 0 24px; margin: 0 auto; }
+
+/* ===== HERO ===== */
+.hero {
+  padding: 100px 0 60px; text-align: center;
+  background: radial-gradient(ellipse at center top, rgba(0,113,227,0.06), transparent 50%);
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 700; color: var(--text-secondary);
+  background: rgba(255,255,255,0.85); backdrop-filter: blur(10px);
+  padding: 10px 22px; border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.5);
+  margin-bottom: 32px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+}
+.badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lime); }
+.hero h1 {
+  font-size: clamp(38px, 7vw, 76px); font-weight: 900;
+  letter-spacing: -0.04em; line-height: 1.0; margin-bottom: 22px;
+}
+.hero h1 .accent { color: var(--blue); }
+.hero p.lead {
+  font-size: clamp(17px, 2vw, 22px); color: var(--text-secondary);
+  max-width: 680px; margin: 0 auto 32px auto;
+}
+.hero-stats {
+  display: inline-flex; gap: 32px; flex-wrap: wrap; justify-content: center;
+  margin-top: 24px;
+}
+.hero-stat { text-align: center; }
+.hero-stat-val { font-size: 32px; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
+.hero-stat-lbl { font-size: 11px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; }
+
+/* ===== SECTIONS ===== */
+.section { padding: 80px 0; }
+.section-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--blue); font-weight: 700; margin-bottom: 12px; }
+.section-title { font-size: clamp(32px, 5vw, 52px); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 16px; line-height: 1.05; }
+.section-sub { font-size: clamp(15px, 1.6vw, 18px); color: var(--text-secondary); max-width: 680px; margin-bottom: 48px; }
+
+/* ===== COMPARATIVO HOY VS MAÑANA ===== */
+.compare {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+}
+@media (max-width: 720px) { .compare { grid-template-columns: 1fr; } }
+.compare-col {
+  padding: 32px; border-radius: var(--radius);
+}
+.compare-col.before {
+  background: rgba(255,59,48,0.04);
+  border: 1px solid rgba(255,59,48,0.12);
+}
+.compare-col.after {
+  background: rgba(52,199,89,0.05);
+  border: 1px solid rgba(52,199,89,0.15);
+}
+.compare-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+  padding: 6px 12px; border-radius: 100px;
+  margin-bottom: 16px;
+}
+.compare-col.before .compare-tag { background: rgba(255,59,48,0.12); color: var(--red); }
+.compare-col.after .compare-tag { background: rgba(52,199,89,0.12); color: var(--green); }
+.compare-list { list-style: none; }
+.compare-list li {
+  display: flex; gap: 12px; padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  font-size: 15px; color: var(--text);
+}
+.compare-list li:last-child { border-bottom: none; }
+.compare-icon { font-size: 18px; line-height: 1.4; flex-shrink: 0; }
+
+/* ===== PROCESO TIMELINE ===== */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+}
+.timeline::before {
+  content: ''; position: absolute; left: 11px; top: 8px; bottom: 8px;
+  width: 2px; background: linear-gradient(180deg, var(--blue), var(--violet), var(--orange));
+  border-radius: 2px;
+}
+.timeline-step {
+  position: relative; padding: 16px 0 24px 0;
+}
+.timeline-step::before {
+  content: ''; position: absolute; left: -28px; top: 24px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: white; border: 3px solid var(--blue);
+}
+.timeline-step:nth-child(2)::before { border-color: var(--violet); }
+.timeline-step:nth-child(3)::before { border-color: var(--orange); }
+.timeline-step:nth-child(4)::before { border-color: var(--green); }
+.timeline-step:nth-child(5)::before { border-color: var(--amber); }
+.timeline-step:nth-child(6)::before { border-color: var(--blue); }
+.timeline-step h3 { font-size: 19px; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.01em; }
+.timeline-step p { color: var(--text-secondary); font-size: 15px; }
+.timeline-step .who {
+  display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em;
+  padding: 4px 10px; border-radius: 100px;
+  background: rgba(0,113,227,0.1); color: var(--blue);
+  margin-bottom: 8px;
+}
+
+/* ===== MOCKUPS ===== */
+.mockup-row {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  margin-top: 32px;
+}
+@media (max-width: 880px) { .mockup-row { grid-template-columns: 1fr; } }
+.phone {
+  background: #1d1d1f; border-radius: 32px; padding: 12px;
+  box-shadow: 0 24px 56px rgba(0,0,0,0.18);
+  position: relative;
+  max-width: 320px; margin: 0 auto;
+}
+.phone-notch {
+  position: absolute; top: 16px; left: 50%; transform: translateX(-50%);
+  width: 80px; height: 18px; background: #1d1d1f; border-radius: 100px; z-index: 2;
+}
+.phone-screen {
+  background: white; border-radius: 22px; padding: 36px 14px 18px 14px;
+  min-height: 480px;
+  font-size: 12px;
+}
+.phone-title {
+  font-size: 11px; font-weight: 700; color: var(--text-secondary);
+  text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 10px;
+}
+.phone-h1 { font-size: 17px; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.01em; }
+
+.phone-input {
+  background: #F5F5F7; border-radius: 8px; padding: 10px 12px;
+  font-size: 12px; color: var(--text); margin-bottom: 10px;
+}
+.phone-input .lbl { font-size: 9px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 2px; }
+.phone-input .val { font-weight: 600; }
+
+.phone-camera-box {
+  background: linear-gradient(135deg, #2a2a2e, #1d1d1f);
+  border-radius: 12px;
+  height: 110px; display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 36px; margin-bottom: 10px;
+}
+.phone-btn {
+  background: var(--blue); color: white;
+  padding: 12px; border-radius: 100px;
+  text-align: center; font-weight: 700; font-size: 13px;
+  margin-top: 14px;
+}
+.phone-btn.alt { background: var(--green); }
+
+.phone-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 12px; background: #F5F5F7; border-radius: 8px; margin-bottom: 8px;
+  font-size: 12px;
+}
+.phone-row.green { background: rgba(52,199,89,0.1); }
+.phone-row.amber { background: rgba(255,184,0,0.1); }
+.phone-row .qty { font-weight: 700; }
+
+.phone-stat {
+  background: #F5F5F7; border-radius: 10px; padding: 10px;
+  margin-bottom: 8px;
+}
+.phone-stat .lbl { font-size: 9px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; }
+.phone-stat .val { font-size: 19px; font-weight: 800; color: var(--text); }
+
+/* ===== ROLES ===== */
+.roles {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+  margin-top: 32px;
+}
+@media (max-width: 720px) { .roles { grid-template-columns: 1fr; } }
+.role-card {
+  padding: 24px; background: var(--surface); border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.role-icon { font-size: 36px; margin-bottom: 12px; }
+.role-title { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+.role-desc { font-size: 14px; color: var(--text-secondary); }
+.role-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+.role-tag { font-size: 10px; padding: 4px 10px; background: rgba(0,0,0,0.05); border-radius: 100px; color: var(--text-secondary); font-weight: 600; }
+
+/* ===== BENEFITS ===== */
+.benefits {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  margin-top: 32px;
+}
+@media (max-width: 880px) { .benefits { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .benefits { grid-template-columns: 1fr; } }
+.benefit {
+  background: var(--surface); padding: 24px;
+  border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.benefit-num {
+  font-size: 36px; font-weight: 900; color: var(--blue);
+  letter-spacing: -0.03em; line-height: 1.0; margin-bottom: 4px;
+}
+.benefit-num.green { color: var(--green); }
+.benefit-num.orange { color: var(--orange); }
+.benefit-num.violet { color: var(--violet); }
+.benefit-num.amber { color: var(--amber); }
+.benefit-num.red { color: var(--red); }
+.benefit-unit { font-size: 14px; color: var(--text-secondary); margin-bottom: 8px; }
+.benefit-title { font-weight: 700; font-size: 15px; margin-bottom: 4px; }
+.benefit-desc { font-size: 13px; color: var(--text-secondary); }
+
+/* ===== ROADMAP ===== */
+.roadmap-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+@media (max-width: 880px) { .roadmap-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .roadmap-grid { grid-template-columns: 1fr; } }
+.roadmap-card {
+  background: var(--surface); padding: 20px;
+  border-radius: 16px; box-shadow: var(--shadow);
+  border-top: 4px solid var(--blue);
+}
+.roadmap-card:nth-child(2) { border-top-color: var(--violet); }
+.roadmap-card:nth-child(3) { border-top-color: var(--orange); }
+.roadmap-card:nth-child(4) { border-top-color: var(--green); }
+.roadmap-month { font-size: 11px; font-weight: 800; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.14em; }
+.roadmap-title { font-size: 17px; font-weight: 800; margin: 6px 0; }
+.roadmap-desc { font-size: 13px; color: var(--text-secondary); }
+
+/* ===== FOOTER ===== */
+.cta {
+  background: var(--text); color: white;
+  border-radius: var(--radius); padding: 56px 32px;
+  text-align: center;
+  margin-top: 48px;
+}
+.cta h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 12px; line-height: 1.1; }
+.cta p { font-size: 16px; opacity: 0.8; max-width: 540px; margin: 0 auto 24px auto; }
+.cta-btn {
+  display: inline-block; background: var(--lime); color: var(--text);
+  padding: 16px 36px; border-radius: 100px;
+  font-weight: 800; font-size: 15px;
+  letter-spacing: -0.01em;
+}
+
+.footer {
+  text-align: center; padding: 40px 0;
+  color: var(--text-tertiary); font-size: 12px;
+  border-top: 1px solid var(--border-subtle); margin-top: 48px;
+}
+</style>
+</head>
+<body>
+
+<!-- ============================= HERO ============================= -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge"><span class="badge-dot"></span> Propuesta de transformación · Junio 2026</div>
+    <h1>La obra<br><span class="accent">en la palma</span> de la mano</h1>
+    <p class="lead">Imagina cerrar una obra, descargarla al cliente y facturarla. Sin papeles. Sin Excel. Sin "dinero enterrado". Desde el celular de cada cuadrilla, en tiempo real, conectado a la oficina.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-val">8</div>
+        <div class="hero-stat-lbl">Contratos</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">400+</div>
+        <div class="hero-stat-lbl">Operarios</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">1 app</div>
+        <div class="hero-stat-lbl">Para todo</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">0 papel</div>
+        <div class="hero-stat-lbl">A la oficina</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= HOY VS MAÑANA ============================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-eyebrow">El cambio</div>
+    <h2 class="section-title">Hoy vs. Mañana</h2>
+    <p class="section-sub">Para entender lo que se viene, primero veamos cómo trabajamos hoy y dónde duele.</p>
+
+    <div class="compare">
+      <div class="compare-col before">
+        <span class="compare-tag">⚠️ Hoy</span>
+        <ul class="compare-list">
+          <li><span class="compare-icon">📄</span> El operario llena papeleta en PAPEL en obra</li>
+          <li><span class="compare-icon">📋</span> El encargado consolida en Excel a la noche</li>
+          <li><span class="compare-icon">📞</span> Llamadas para coordinar con almacén y oficina</li>
+          <li><span class="compare-icon">🕐</span> El residente pasa horas digitando en el aplicativo del cliente</li>
+          <li><span class="compare-icon">🤔</span> Nadie sabe en tiempo real cuánto se cumplió del ANS</li>
+          <li><span class="compare-icon">💸</span> Vanti rechaza el libro de obra → "dinero enterrado"</li>
+          <li><span class="compare-icon">🔍</span> Auditoría toma semanas porque la información está dispersa</li>
+        </ul>
+      </div>
+      <div class="compare-col after">
+        <span class="compare-tag">✨ Mañana</span>
+        <ul class="compare-list">
+          <li><span class="compare-icon">📱</span> El operario llena el parte en SU CELULAR con foto+GPS</li>
+          <li><span class="compare-icon">⚡</span> El encargado cierra el frente en 15 min (no 3 horas)</li>
+          <li><span class="compare-icon">🔄</span> Materiales se descargan automáticamente de almacén</li>
+          <li><span class="compare-icon">🚀</span> El residente liquida en 30 min y descarga directo al cliente</li>
+          <li><span class="compare-icon">📊</span> Gerente ve cumplimiento ANS en vivo, contrato por contrato</li>
+          <li><span class="compare-icon">✅</span> Libro de obra Vanti completo y firmado, cero sanciones</li>
+          <li><span class="compare-icon">🎯</span> Cada parte trazable con foto, GPS, firma y timestamp</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= EL FLUJO ============================= -->
+<section class="section" style="background: rgba(255,255,255,0.5);">
+  <div class="container">
+    <div class="section-eyebrow">El día a día</div>
+    <h2 class="section-title">Así fluye una obra,<br>de principio a fin</h2>
+    <p class="section-sub">Desde que el cliente envía la asignación hasta que se factura. Sin saltos. Sin pérdidas.</p>
+
+    <div class="timeline">
+      <div class="timeline-step">
+        <span class="who">Cliente</span>
+        <h3>El cliente carga la asignación</h3>
+        <p>EPM, Vanti, Gases de Occidente envían la obra al sistema de Condugas vía sus aplicativos (Gaspar, OSF, SAP Vanti…). Llega lista para asignar.</p>
+      </div>
+      <div class="timeline-step">
+        <span class="who">Centro de operaciones</span>
+        <h3>Se asigna a una cuadrilla</h3>
+        <p>El coordinador ve las obras pendientes y las distribuye según frente operativo. La cuadrilla recibe notificación en su app.</p>
+      </div>
+      <div class="timeline-step">
+        <span class="who">Operario en obra</span>
+        <h3>El operario ejecuta y reporta</h3>
+        <p>Abre la app en su celular (funciona sin internet), ve sus asignaciones del día, llena el parte con materiales, horas, fotos con GPS, firma del cliente.</p>
+      </div>
+      <div class="timeline-step">
+        <span class="who">Encargado del frente</span>
+        <h3>Cierre del día — 15 min</h3>
+        <p>Antes de irse, el encargado revisa los partes de su cuadrilla, consolida materiales, valida fotos+ATS+evidencia. Confirma y listo. Las horas pasan a nómina automáticamente.</p>
+      </div>
+      <div class="timeline-step">
+        <span class="who">Ingeniero residente</span>
+        <h3>Liquidación al día siguiente</h3>
+        <p>Por la mañana recibe el consolidado completo del día anterior. Lo revisa, lo aprueba y descarga directo al aplicativo del cliente (TAOS, Gaspar, OSF).</p>
+      </div>
+      <div class="timeline-step">
+        <span class="who">Aprobación y cobro</span>
+        <h3>Cliente aprueba → factura</h3>
+        <p>El cliente revisa y aprueba. La obra se incluye automáticamente en el informe semanal de producción y queda lista para facturar. Sin papeles. Sin esperas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= LA APP VISUAL ============================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-eyebrow">La aplicación</div>
+    <h2 class="section-title">Así se verá<br>en el celular</h2>
+    <p class="section-sub">Una sola app para todos: operario, encargado, residente, gerente. Cada quien ve lo que necesita. Funciona offline.</p>
+
+    <div class="mockup-row">
+      <!-- MOCKUP 1: OPERARIO -->
+      <div>
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-title">PARTE DE TRABAJO</div>
+            <div class="phone-h1">Daño · Calle 52 #14-90</div>
+            <div class="phone-input">
+              <div class="lbl">Actividad</div>
+              <div class="val">Fuga matriz</div>
+            </div>
+            <div class="phone-input">
+              <div class="lbl">Cantidad</div>
+              <div class="val">3.5 m³</div>
+            </div>
+            <div class="phone-camera-box">📸</div>
+            <div class="phone-row green">
+              <span>✓ Foto antes (GPS)</span>
+              <span class="qty">3</span>
+            </div>
+            <div class="phone-btn">Cerrar parte</div>
+          </div>
+        </div>
+        <p style="text-align: center; margin-top: 16px; font-size: 13px; color: var(--text-secondary);">
+          <strong>Operario en obra</strong><br>
+          Llena el parte con foto+GPS automático
+        </p>
+      </div>
+
+      <!-- MOCKUP 2: ENCARGADO -->
+      <div>
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-title">CIERRE DEL FRENTE</div>
+            <div class="phone-h1">Daños · 22 Jun</div>
+            <div class="phone-row green">
+              <span>OYMA-08234 · Fuga</span>
+              <span class="qty">✓</span>
+            </div>
+            <div class="phone-row green">
+              <span>OYMA-08235 · Lleno</span>
+              <span class="qty">✓</span>
+            </div>
+            <div class="phone-row amber">
+              <span>OYMA-08236 · Pendiente foto</span>
+              <span class="qty">!</span>
+            </div>
+            <div class="phone-row green">
+              <span>OYMA-08237 · Maniobra</span>
+              <span class="qty">✓</span>
+            </div>
+            <div class="phone-input" style="margin-top:12px;">
+              <div class="lbl">Horas cuadrilla</div>
+              <div class="val">9.5 h · 4 personas</div>
+            </div>
+            <div class="phone-btn alt">Consolidar día</div>
+          </div>
+        </div>
+        <p style="text-align: center; margin-top: 16px; font-size: 13px; color: var(--text-secondary);">
+          <strong>Encargado de cuadrilla</strong><br>
+          Cierre del frente en 15 minutos
+        </p>
+      </div>
+
+      <!-- MOCKUP 3: GERENTE -->
+      <div>
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-title">PRODUCCIÓN HOY</div>
+            <div class="phone-h1">OYMA Aguas R2</div>
+            <div class="phone-stat">
+              <div class="lbl">Asignaciones cerradas</div>
+              <div class="val">23 / 28</div>
+            </div>
+            <div class="phone-stat">
+              <div class="lbl">Cumplimiento ANS</div>
+              <div class="val" style="color: var(--green);">97%</div>
+            </div>
+            <div class="phone-stat">
+              <div class="lbl">Cuadrillas activas</div>
+              <div class="val">12</div>
+            </div>
+            <div class="phone-stat">
+              <div class="lbl">$ facturable hoy</div>
+              <div class="val">$ 14.2M</div>
+            </div>
+          </div>
+        </div>
+        <p style="text-align: center; margin-top: 16px; font-size: 13px; color: var(--text-secondary);">
+          <strong>Gerente/Director</strong><br>
+          Producción en tiempo real, sin Excel
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= ROLES ============================= -->
+<section class="section" style="background: rgba(255,255,255,0.5);">
+  <div class="container">
+    <div class="section-eyebrow">Quién usa qué</div>
+    <h2 class="section-title">Una app, cuatro roles</h2>
+    <p class="section-sub">Cada persona en Condugas ve solo lo que necesita para su rol. Sin entrenar a nadie en sistemas complejos.</p>
+
+    <div class="roles">
+      <div class="role-card">
+        <div class="role-icon">👷</div>
+        <div class="role-title">Operario / Ayudante</div>
+        <div class="role-desc">Recibe sus asignaciones, ejecuta en obra, registra materiales, horas y evidencia. No necesita saber nada de oficina.</div>
+        <div class="role-tags">
+          <span class="role-tag">Foto + GPS</span>
+          <span class="role-tag">Materiales</span>
+          <span class="role-tag">Horas</span>
+          <span class="role-tag">Firma cliente</span>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">🛠️</div>
+        <div class="role-title">Encargado de cuadrilla</div>
+        <div class="role-desc">Cierra el día del frente: valida los partes, consolida materiales, calcula horas y dispara reintegros automáticamente.</div>
+        <div class="role-tags">
+          <span class="role-tag">Cierre diario</span>
+          <span class="role-tag">Reintegros</span>
+          <span class="role-tag">Novedades SST</span>
+          <span class="role-tag">Cuadrilla</span>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">📐</div>
+        <div class="role-title">Ingeniero residente</div>
+        <div class="role-desc">Liquida el día siguiente y descarga al aplicativo del cliente. Recibe todo listo, ya no digita en 3 sistemas distintos.</div>
+        <div class="role-tags">
+          <span class="role-tag">Liquidación</span>
+          <span class="role-tag">Descargue cliente</span>
+          <span class="role-tag">ANS</span>
+          <span class="role-tag">Facturable</span>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">📊</div>
+        <div class="role-title">Director / Gerente</div>
+        <div class="role-desc">Ve la operación en tiempo real: ANS por contrato, cumplimiento por cuadrilla, plata facturable y por cobrar.</div>
+        <div class="role-tags">
+          <span class="role-tag">Dashboard</span>
+          <span class="role-tag">8 contratos</span>
+          <span class="role-tag">Cumplimiento</span>
+          <span class="role-tag">Caja</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= BENEFICIOS ============================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-eyebrow">Lo que ganamos</div>
+    <h2 class="section-title">Resultados<br>concretos</h2>
+    <p class="section-sub">No son promesas vagas. Estos son los cambios que vamos a medir mes a mes.</p>
+
+    <div class="benefits">
+      <div class="benefit">
+        <div class="benefit-num green">5×</div>
+        <div class="benefit-unit">más rápido</div>
+        <div class="benefit-title">Cierre del frente</div>
+        <div class="benefit-desc">De 2-3 horas a 15 minutos. El encargado vuelve a su casa, no se queda haciendo Excel.</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-num red">0</div>
+        <div class="benefit-unit">sanciones Vanti</div>
+        <div class="benefit-title">Libro de obra</div>
+        <div class="benefit-desc">Los 49 documentos digitalizados y firmados en orden. Cero "dinero enterrado".</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-num blue">100%</div>
+        <div class="benefit-unit">trazable</div>
+        <div class="benefit-title">Auditoría inmediata</div>
+        <div class="benefit-desc">Cada parte tiene foto, GPS, hora y firma. Si el cliente pregunta, se demuestra en 30 segundos.</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-num violet">0</div>
+        <div class="benefit-unit">tipeo manual</div>
+        <div class="benefit-title">Nómina automática</div>
+        <div class="benefit-desc">Las horas de cada operario alimentan nómina directo. Ya no se llenan planillas.</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-num orange">en vivo</div>
+        <div class="benefit-unit">sin esperas</div>
+        <div class="benefit-title">ANS por contrato</div>
+        <div class="benefit-desc">El gerente abre la app y ve si OYMA está al 97% o al 89%. Sin esperar al lunes.</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-num amber">offline</div>
+        <div class="benefit-unit">sin internet</div>
+        <div class="benefit-title">Funciona en cualquier obra</div>
+        <div class="benefit-desc">Aunque no haya señal, el operario carga su parte. Cuando vuelve la red, se sincroniza solo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= ROADMAP ============================= -->
+<section class="section" style="background: rgba(255,255,255,0.5);">
+  <div class="container">
+    <div class="section-eyebrow">Cuándo</div>
+    <h2 class="section-title">El plan en<br>4 momentos</h2>
+    <p class="section-sub">No es ciencia ficción. Es ejecución concreta en 3 a 4 meses. Empezamos chico (un contrato piloto) y vamos sumando.</p>
+
+    <div class="roadmap-grid">
+      <div class="roadmap-card">
+        <div class="roadmap-month">Mes 1</div>
+        <div class="roadmap-title">Diseñar las reglas</div>
+        <div class="roadmap-desc">Cargamos los 8 contratos al sistema con sus frentes, actividades y reglas particulares. Sin escribir código aún.</div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-month">Mes 2</div>
+        <div class="roadmap-title">Construir el motor</div>
+        <div class="roadmap-desc">Parte de trabajo + cierre del frente + integraciones con inventario y nómina. Probado en el back-office de Condugas.</div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-month">Mes 3</div>
+        <div class="roadmap-title">Liberar la app móvil</div>
+        <div class="roadmap-desc">App PWA instalable en celulares. Offline, foto, GPS, firma. Capacitamos 15 operarios piloto del contrato OYMA aguas EPM.</div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-month">Mes 4+</div>
+        <div class="roadmap-title">Sumar los 7 contratos</div>
+        <div class="roadmap-desc">Uno por semana. Vanti, GDO, Z2, Normalización, NN, Metrogas, SILAR. Solo se cargan sus reglas. Sin reescribir.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= CTA ============================= -->
+<section class="section">
+  <div class="container">
+    <div class="cta">
+      <h2>Empezamos con<br>el contrato OYMA aguas EPM</h2>
+      <p>Es el más maduro y crítico. Probamos todo el flujo end-to-end con 15 operarios piloto. Una vez funcione, replicamos a los otros 7 en semanas, no meses.</p>
+      <div class="cta-btn">Listos para arrancar en Julio 2026</div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    Propuesta de transformación digital · Producción Condugas<br>
+    Diseñado por Being CoRE para el equipo Condugas · Junio 2026
+  </div>
+</footer>
+
+</body>
+</html>
