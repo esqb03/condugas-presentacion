@@ -626,6 +626,281 @@ body {
   </div>
 </section>
 
+<!-- ============================= DETALLE FASES ============================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-eyebrow">Paso a paso</div>
+    <h2 class="section-title">Qué se construye<br>en cada momento</h2>
+    <p class="section-sub">Desglose detallado de cada fase del proyecto. No son cajas vacías, son entregables concretos que se prueban semana a semana.</p>
+
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      <div style="background: var(--surface); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); border-left: 6px solid var(--blue);">
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 12px;">
+          <span style="font-size: 11px; font-weight: 800; color: var(--blue); text-transform: uppercase; letter-spacing: 0.14em;">FASE 0 · Semana 1</span>
+          <span style="font-size: 11px; color: var(--text-tertiary);">Refactor del repositorio</span>
+        </div>
+        <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.01em;">Preparamos la casa antes de construir</h3>
+        <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 16px;">Limpiamos los 27 módulos custom existentes, separamos lo que se va a tocar de lo que queda quieto, y dejamos una rama de trabajo lista.</p>
+        <ul style="font-size: 14px; color: var(--text); padding-left: 20px;">
+          <li>Branch <code style="background: #F5F5F7; padding: 2px 6px; border-radius: 4px;">feat/produccion</code> para todo el desarrollo</li>
+          <li>Esqueleto de los 2 módulos nuevos: configuración + API móvil</li>
+          <li>Detección de duplicidades y archivos huérfanos</li>
+          <li>Cero impacto en producción durante esta fase</li>
+        </ul>
+      </div>
+
+      <div style="background: var(--surface); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); border-left: 6px solid var(--violet);">
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 12px;">
+          <span style="font-size: 11px; font-weight: 800; color: var(--violet); text-transform: uppercase; letter-spacing: 0.14em;">FASE 1 · Semanas 2-3</span>
+          <span style="font-size: 11px; color: var(--text-tertiary);">Configurar los 8 contratos</span>
+        </div>
+        <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.01em;">Cargamos las reglas de cada cliente</h3>
+        <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 16px;">Antes de escribir lógica de operación, definimos QUÉ se hace en cada contrato. Esto se hace UNA VEZ y queda para siempre.</p>
+        <ul style="font-size: 14px; color: var(--text); padding-left: 20px;">
+          <li>Cargar los frentes operativos de cada contrato (Daños, Pavimentos, Redes Externas, etc.)</li>
+          <li>Cargar las actividades por frente (fuga matriz, lleno técnico, mantenimiento, etc.)</li>
+          <li>Configurar reglas particulares: marca de agua Vanti, códigos EPM, certificación GDO, libro de obra</li>
+          <li>Cargar tabla de ANS por tipo de actividad y por contrato</li>
+          <li>Definir quién aprueba qué en cada contrato (TAOS, interventor, coordinador)</li>
+        </ul>
+      </div>
+
+      <div style="background: var(--surface); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); border-left: 6px solid var(--orange);">
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 12px;">
+          <span style="font-size: 11px; font-weight: 800; color: var(--orange); text-transform: uppercase; letter-spacing: 0.14em;">FASE 2 · Semanas 4-6</span>
+          <span style="font-size: 11px; color: var(--text-tertiary);">El parte de trabajo del operario</span>
+        </div>
+        <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.01em;">Construimos el corazón del sistema</h3>
+        <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 16px;">El formulario que el operario va a usar en obra. 22 campos que se ajustan automáticamente según el contrato y la actividad.</p>
+        <ul style="font-size: 14px; color: var(--text); padding-left: 20px;">
+          <li>Captura completa: operario, frente, actividad, cantidad, materiales, horas, fotos con GPS, firma</li>
+          <li>Validaciones automáticas (foto mínimo 3, ATS si aplica, GPS coherente)</li>
+          <li>Maniobras de válvulas (OYMA aguas), códigos EPM (Z2 gas), documento del libro (Vanti)</li>
+          <li>Workflow de estados: borrador → en proceso → cerrado en campo → cerrado por encargado → liquidado → aprobado cliente</li>
+          <li>Reporte PDF para imprimir si el cliente lo pide</li>
+        </ul>
+      </div>
+
+      <div style="background: var(--surface); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); border-left: 6px solid var(--green);">
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 12px;">
+          <span style="font-size: 11px; font-weight: 800; color: var(--green); text-transform: uppercase; letter-spacing: 0.14em;">FASE 3 · Semanas 7-8</span>
+          <span style="font-size: 11px; color: var(--text-tertiary);">Cierre del frente diario</span>
+        </div>
+        <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.01em;">El consolidado que conecta todo</h3>
+        <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 16px;">Cuando el encargado cierra su frente del día, una sola acción dispara todo: nómina, inventario, alertas SST, programación día siguiente.</p>
+        <ul style="font-size: 14px; color: var(--text); padding-left: 20px;">
+          <li>Botón "Traer partes del día" — agrupa los partes del encargado automáticamente</li>
+          <li>Botón "Consolidar materiales" — suma consumos y calcula reintegros</li>
+          <li>Botón "Calcular horas" — arma la tabla persona × horas (ordinarias + extras + recargos)</li>
+          <li>Al cerrar: genera asistencia, work entries para nómina, picking de reintegro de stock</li>
+          <li>Si hay incidente SST, notifica automáticamente al responsable del contrato</li>
+        </ul>
+      </div>
+
+      <div style="background: var(--surface); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); border-left: 6px solid var(--amber);">
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 12px;">
+          <span style="font-size: 11px; font-weight: 800; color: var(--amber); text-transform: uppercase; letter-spacing: 0.14em;">FASE 4 · Semanas 8-9 (paralelo)</span>
+          <span style="font-size: 11px; color: var(--text-tertiary);">Puente entre Odoo y la app</span>
+        </div>
+        <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.01em;">Conectamos el sistema con el celular</h3>
+        <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 16px;">El módulo que permite que la app móvil hable con Odoo de forma segura. Lo construimos en paralelo con la app.</p>
+        <ul style="font-size: 14px; color: var(--text); padding-left: 20px;">
+          <li>Endpoints seguros con autenticación por token JWT</li>
+          <li>Snapshot inicial: la app baja todo lo necesario en una sola llamada</li>
+          <li>Sincronización delta: solo se descarga lo que cambió</li>
+          <li>Validación servidor de cada parte que llega del celular</li>
+          <li>Manejo de conflictos cuando un mismo parte se edita en varios lugares</li>
+        </ul>
+      </div>
+
+      <div style="background: var(--surface); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); border-left: 6px solid var(--red);">
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 12px;">
+          <span style="font-size: 11px; font-weight: 800; color: var(--red); text-transform: uppercase; letter-spacing: 0.14em;">FASE 5 · Semanas 8-11 (paralelo)</span>
+          <span style="font-size: 11px; color: var(--text-tertiary);">App ConduMóvil</span>
+        </div>
+        <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.01em;">La aplicación de campo</h3>
+        <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 16px;">El producto que ven los operarios. Instalable en cualquier celular Android/iPhone como una app nativa, pero funciona offline.</p>
+        <ul style="font-size: 14px; color: var(--text); padding-left: 20px;">
+          <li>Login seguro con persistencia (no pide contraseña cada vez)</li>
+          <li>Lista de "Mis asignaciones del día"</li>
+          <li>Formulario de parte con captura de foto+GPS+EXIF</li>
+          <li>Firma del cliente en pantalla con el dedo</li>
+          <li>Modo offline: si no hay señal, todo queda guardado y se sincroniza al volver red</li>
+          <li>Vista del encargado, del residente y del director (4 roles en 1 app)</li>
+          <li>Instalable como ícono en la pantalla de inicio del celular</li>
+        </ul>
+      </div>
+
+      <div style="background: var(--surface); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); border-left: 6px solid var(--lime);">
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 12px;">
+          <span style="font-size: 11px; font-weight: 800; color: #889f1f; text-transform: uppercase; letter-spacing: 0.14em;">FASE 6 · Semanas 12-14</span>
+          <span style="font-size: 11px; color: var(--text-tertiary);">Pilotaje con OYMA aguas EPM</span>
+        </div>
+        <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.01em;">Salimos a la calle</h3>
+        <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 16px;">El sistema entra en producción real con el contrato OYMA aguas EPM. 10-15 operarios + 2-3 encargados como piloto.</p>
+        <ul style="font-size: 14px; color: var(--text); padding-left: 20px;">
+          <li>Capacitación práctica en obra (no solo en aula)</li>
+          <li>Soporte en vivo en obra durante la primera semana</li>
+          <li>Ajustes rápidos según feedback del operario</li>
+          <li>Monitoreo de errores y métricas de uso</li>
+          <li>Documentación de operación para el resto del equipo</li>
+        </ul>
+      </div>
+
+      <div style="background: var(--surface); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); border-left: 6px solid var(--green);">
+        <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 12px;">
+          <span style="font-size: 11px; font-weight: 800; color: var(--green); text-transform: uppercase; letter-spacing: 0.14em;">FASE 7 · Mes 4 en adelante</span>
+          <span style="font-size: 11px; color: var(--text-tertiary);">Sumamos los 7 contratos restantes</span>
+        </div>
+        <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.01em;">Replicamos un contrato por semana</h3>
+        <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 16px;">Una vez OYMA esté operando, los otros 7 entran configurando parámetros. No se reescribe código.</p>
+        <ul style="font-size: 14px; color: var(--text); padding-left: 20px;">
+          <li>Cada contrato: configurar aplicativo cliente, frentes, actividades, ANS, sanciones</li>
+          <li>Capacitar al equipo del contrato</li>
+          <li>Smoke test con 1-2 cuadrillas piloto del contrato</li>
+          <li>Ir a producción</li>
+          <li>Pasar al siguiente</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= REQUERIMIENTOS ============================= -->
+<section class="section" style="background: rgba(255,255,255,0.5);">
+  <div class="container">
+    <div class="section-eyebrow">Lo que necesitamos</div>
+    <h2 class="section-title">Requerimientos<br>para arrancar</h2>
+    <p class="section-sub">No es solo software. Necesitamos infraestructura, accesos, dispositivos y compromiso del equipo Condugas.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;" class="req-grid">
+      <div style="background: var(--surface); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow);">
+        <div style="font-size: 28px; margin-bottom: 12px;">🖥️</div>
+        <h3 style="font-size: 17px; font-weight: 800; margin-bottom: 8px;">Infraestructura técnica</h3>
+        <ul style="font-size: 14px; color: var(--text-secondary); padding-left: 18px;">
+          <li style="margin-bottom: 6px;">Odoo.sh existente (ya está corriendo, no se cambia nada)</li>
+          <li style="margin-bottom: 6px;">VPS Hostinger grande (~$30/mes) para la app y storage de fotos</li>
+          <li style="margin-bottom: 6px;">Acceso a NAS o segundo VPS para backups (opcional)</li>
+          <li style="margin-bottom: 6px;">Dominio propio sugerido (ej: condumovil.condugas.com.co)</li>
+        </ul>
+      </div>
+
+      <div style="background: var(--surface); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow);">
+        <div style="font-size: 28px; margin-bottom: 12px;">📱</div>
+        <h3 style="font-size: 17px; font-weight: 800; margin-bottom: 8px;">Dispositivos de operarios</h3>
+        <ul style="font-size: 14px; color: var(--text-secondary); padding-left: 18px;">
+          <li style="margin-bottom: 6px;">Smartphone Android 9+ o iPhone con iOS 14+</li>
+          <li style="margin-bottom: 6px;">Cámara funcional y GPS habilitado</li>
+          <li style="margin-bottom: 6px;">Plan de datos básico (la app pesa poco y es offline-first)</li>
+          <li style="margin-bottom: 6px;">Si Condugas quiere uniformidad: dotación de equipos compartidos</li>
+        </ul>
+      </div>
+
+      <div style="background: var(--surface); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow);">
+        <div style="font-size: 28px; margin-bottom: 12px;">📋</div>
+        <h3 style="font-size: 17px; font-weight: 800; margin-bottom: 8px;">Información a recopilar</h3>
+        <ul style="font-size: 14px; color: var(--text-secondary); padding-left: 18px;">
+          <li style="margin-bottom: 6px;">Lista de frentes operativos vigentes por contrato</li>
+          <li style="margin-bottom: 6px;">Catálogo de actividades por frente y sus unidades de medida</li>
+          <li style="margin-bottom: 6px;">Tabla de ANS y sanciones (Vanti T1/T2 especialmente)</li>
+          <li style="margin-bottom: 6px;">Para Floridablanca y Bucaramanga: pliego del cliente (Metrogas / SILAR)</li>
+          <li style="margin-bottom: 6px;">Credenciales TINSTAM (marca de agua Vanti) si se integra</li>
+        </ul>
+      </div>
+
+      <div style="background: var(--surface); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow);">
+        <div style="font-size: 28px; margin-bottom: 12px;">👥</div>
+        <h3 style="font-size: 17px; font-weight: 800; margin-bottom: 8px;">Personas clave del lado Condugas</h3>
+        <ul style="font-size: 14px; color: var(--text-secondary); padding-left: 18px;">
+          <li style="margin-bottom: 6px;"><strong>Sponsor ejecutivo</strong>: gerente que respalda y abre puertas</li>
+          <li style="margin-bottom: 6px;"><strong>Líder funcional</strong>: alguien que conoce TODO el flujo operativo (validar reglas)</li>
+          <li style="margin-bottom: 6px;"><strong>Líder TI/sistemas</strong>: acceso a Odoo, infra, credenciales</li>
+          <li style="margin-bottom: 6px;"><strong>Líder por contrato</strong>: validador específico (Diana, Carlos, Eduard, Hilda Mary, etc.)</li>
+          <li style="margin-bottom: 6px;"><strong>Cuadrilla piloto</strong>: 10-15 operarios voluntarios para arranque</li>
+        </ul>
+      </div>
+
+      <div style="background: var(--surface); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow);">
+        <div style="font-size: 28px; margin-bottom: 12px;">🎓</div>
+        <h3 style="font-size: 17px; font-weight: 800; margin-bottom: 8px;">Plan de capacitación</h3>
+        <ul style="font-size: 14px; color: var(--text-secondary); padding-left: 18px;">
+          <li style="margin-bottom: 6px;">Sesión de 1 hora para operarios (explicación + práctica)</li>
+          <li style="margin-bottom: 6px;">Sesión de 2 horas para encargados (cierre del frente + casos)</li>
+          <li style="margin-bottom: 6px;">Sesión de 2 horas para residentes (liquidación + descargue cliente)</li>
+          <li style="margin-bottom: 6px;">Sesión ejecutiva de 30 min para directores (dashboard)</li>
+          <li style="margin-bottom: 6px;">Material de apoyo: video corto + manual de bolsillo</li>
+        </ul>
+      </div>
+
+      <div style="background: var(--surface); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow);">
+        <div style="font-size: 28px; margin-bottom: 12px;">🔐</div>
+        <h3 style="font-size: 17px; font-weight: 800; margin-bottom: 8px;">Accesos a aplicativos cliente</h3>
+        <ul style="font-size: 14px; color: var(--text-secondary); padding-left: 18px;">
+          <li style="margin-bottom: 6px;">Credenciales Gaspar / Máximo / Hidro (EPM)</li>
+          <li style="margin-bottom: 6px;">Credenciales OSF (Citrix Gases de Occidente)</li>
+          <li style="margin-bottom: 6px;">SAP Vanti / SIGnatural / Seogas</li>
+          <li style="margin-bottom: 6px;">FCK (EPM Nuevos Negocios)</li>
+          <li style="margin-bottom: 6px;">SharePoint clientes (auditoría)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= MÉTRICAS DE ÉXITO ============================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-eyebrow">Cómo lo medimos</div>
+    <h2 class="section-title">Indicadores<br>de éxito</h2>
+    <p class="section-sub">No declaramos victoria hasta cumplir estos números mes a mes. Esto no es opinión, son métricas concretas.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;" class="req-grid">
+      <div style="background: var(--surface); border-radius: 16px; padding: 24px; box-shadow: var(--shadow); display: flex; gap: 16px; align-items: flex-start;">
+        <div style="font-size: 32px; flex-shrink: 0;">✅</div>
+        <div>
+          <div style="font-weight: 800; font-size: 16px; margin-bottom: 4px;">100% partes del día cargados</div>
+          <div style="font-size: 13px; color: var(--text-secondary);">Antes de las 6 PM, todas las cuadrillas tienen sus partes en el sistema.</div>
+        </div>
+      </div>
+      <div style="background: var(--surface); border-radius: 16px; padding: 24px; box-shadow: var(--shadow); display: flex; gap: 16px; align-items: flex-start;">
+        <div style="font-size: 32px; flex-shrink: 0;">🎯</div>
+        <div>
+          <div style="font-weight: 800; font-size: 16px; margin-bottom: 4px;">&lt;5% partes rechazados</div>
+          <div style="font-size: 13px; color: var(--text-secondary);">Por foto faltante, ATS, GPS incoherente. Si supera, ajustamos validaciones.</div>
+        </div>
+      </div>
+      <div style="background: var(--surface); border-radius: 16px; padding: 24px; box-shadow: var(--shadow); display: flex; gap: 16px; align-items: flex-start;">
+        <div style="font-size: 32px; flex-shrink: 0;">⏱️</div>
+        <div>
+          <div style="font-weight: 800; font-size: 16px; margin-bottom: 4px;">Cierre del frente en 15 min</div>
+          <div style="font-size: 13px; color: var(--text-secondary);">Tiempo del encargado para consolidar el día. Hoy: 2-3 horas en papel.</div>
+        </div>
+      </div>
+      <div style="background: var(--surface); border-radius: 16px; padding: 24px; box-shadow: var(--shadow); display: flex; gap: 16px; align-items: flex-start;">
+        <div style="font-size: 32px; flex-shrink: 0;">📦</div>
+        <div>
+          <div style="font-weight: 800; font-size: 16px; margin-bottom: 4px;">Liquidación en 30 min</div>
+          <div style="font-size: 13px; color: var(--text-secondary);">Tiempo del ingeniero residente. Hoy: 1+ hora rebotando entre sistemas.</div>
+        </div>
+      </div>
+      <div style="background: var(--surface); border-radius: 16px; padding: 24px; box-shadow: var(--shadow); display: flex; gap: 16px; align-items: flex-start;">
+        <div style="font-size: 32px; flex-shrink: 0;">💰</div>
+        <div>
+          <div style="font-weight: 800; font-size: 16px; margin-bottom: 4px;">Cero sanciones Vanti</div>
+          <div style="font-size: 13px; color: var(--text-secondary);">Libro de obra completo, foto con marca de agua, documentos firmados.</div>
+        </div>
+      </div>
+      <div style="background: var(--surface); border-radius: 16px; padding: 24px; box-shadow: var(--shadow); display: flex; gap: 16px; align-items: flex-start;">
+        <div style="font-size: 32px; flex-shrink: 0;">🔄</div>
+        <div>
+          <div style="font-weight: 800; font-size: 16px; margin-bottom: 4px;">Sincronización &lt;30 seg</div>
+          <div style="font-size: 13px; color: var(--text-secondary);">Cuando vuelve la señal, todo lo cargado offline llega al sistema en menos de medio minuto.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============================= CTA ============================= -->
 <section class="section">
   <div class="container">
